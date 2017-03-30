@@ -1,0 +1,22 @@
+<p *ngIf="initialized">
+  Total number :{{data.length}}<br/>
+  Scale: {{scale}}<br/>
+  Current visible: {{ visibleCandles.length }}<br/>
+  Start date: {{ visibleCandles[0].date }}<br/>
+  End date: {{ visibleCandles[visibleCandles.length - 1].date }}<br/>
+  Chart Width: {{ chartWidth }}<br/>
+</p>
+
+<div class="chart-container" #container>
+  <div *ngIf="initialized">
+    <chart-details [data]="visibleCandles[selected]"></chart-details>
+    <svg [attr.viewBox]="getViewBox()">
+      <g chart-medians [dataset]="visibleCandles[selected].median"></g>
+      <g *ngFor="let item of visibleCandles; let i = index;" (mouseenter)="select(i)">
+        <g chart-mouse-catcher [dataset]="item.catcher"></g>
+        <g chart-candle [dataset]="item.candle" [selected]="currentSelected(i)"></g>
+        <g chart-candle-volume [dataset]="item.hist"></g>
+      </g>
+    </svg>
+  </div>
+</div>

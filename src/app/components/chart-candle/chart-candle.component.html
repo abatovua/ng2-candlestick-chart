@@ -1,0 +1,25 @@
+<svg:rect
+  [attr.x]="dataset.rect.x"
+  [attr.y]="dataset.rect.y"
+  [attr.width]="dataset.rect.width"
+  [attr.height]="dataset.rect.height"
+  [attr.fill]="selected ? dataset.colors.hover : dataset.colors.regular"
+  [attr.stroke-width]="selected ? 1 : 0"
+  [attr.stroke]="selected ? dataset.colors.hover : dataset.colors.regular"
+/>
+<svg:line
+  [attr.x1]="dataset.high.x1"
+  [attr.y1]="dataset.high.y1"
+  [attr.x2]="dataset.high.x2"
+  [attr.y2]="dataset.high.y2"
+  [attr.stroke-width]="selected ? 2 : 1"
+  [attr.stroke]="selected ? dataset.colors.hover : dataset.colors.regular"
+/>
+<svg:line
+  [attr.x1]="dataset.low.x1"
+  [attr.y1]="dataset.low.y1"
+  [attr.x2]="dataset.low.x2"
+  [attr.y2]="dataset.low.y2"
+  [attr.stroke-width]="selected ? 2 : 1"
+  [attr.stroke]="selected ? dataset.colors.hover : dataset.colors.regular"
+/>

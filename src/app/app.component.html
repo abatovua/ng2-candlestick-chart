@@ -1,3 +1,8 @@
-<h1>
-  {{title}}
-</h1>
+<header><h1>Header</h1></header>
+<candle-chart
+  *ngIf="historicalData"
+  [data]="historicalData"
+  [candlesSectionHeight]="250"
+  [volumeSectionHeight]="75"
+  [timelineSectionHeight]="75"
+></candle-chart>
